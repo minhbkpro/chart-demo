@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+    crossorigin="anonymous">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker3.min.css">
+  <link rel="stylesheet" href="css/c3.min.css">
+
+  <link rel="stylesheet" href="css/main.css">
+
+  <title>Hello, world!</title>
+</head>
+
+<body>
+  <div class="container">
+    <nav class="mt-5 mb-4" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">キッチン用品</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">そうだねフライパン</li>
+      </ol>
+    </nav>
+
+    <form id="filter" class="form-inline justify-content-end">
+      <label>期間</label>
+      <input id="start-date" type="text" class="form-control form-control-sm ml-2 datepicker">
+      <span class="mx-2">~</span>
+      <input id="end-date" type="text" class="form-control form-control-sm datepicker">
+      <label class="ml-4">販売サイト選択</label>
+      <span class="ml-2"></span>
+      <select class="form-control form-control-sm" multiple="multiple">
+        <optgroup label="アマゾン">
+          <option value="1">ShopA</option>
+          <option value="2">ShopB</option>
+          <option value="3">ShopC</option>
+        </optgroup>
+        <optgroup label="楽天">
+          <option value="4">ShopX</option>
+        </optgroup>
+        <optgroup label="他の販売サイト">
+          <option value="4">ShopY</option>
+        </optgroup>
+      </select>
+    </form>
+
+    <div id="chart"></div>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+  <script src="js/d3.v5.min.js"></script>
+  <script src="js/c3.min.js"></script>
+  <script src="js/chart.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
