@@ -11,28 +11,6 @@ $(document).ready(function () {
   $(document).on('change', '#start-date, #end-date, select', function() {
     genChart();
   });
-
-  // $('#item1,#item2').change(function () {
-  //   var startDate = $('#item1').val();
-  //   var endDate = $('#item2').val();
-  //   var checkDate = parseInt(startDate.replace(/\//gi, '')) > parseInt(endDate.replace(/\//gi, '')) ? false : true;
-
-  //   if (startDate !== '' && endDate !== '' && checkDate) {
-  //     // Usage
-  //     let dates = getDates(new Date(startDate), new Date(endDate));
-  //     chartInit = genChart(dates);
-  //   }
-  // });
-
-  // $('.select2').change(function () {
-
-  //   var difference = [];
-  //   var listSelect = M.FormSelect.getInstance($(this)).getSelectedValues();
-  //   difference = array_diff(listInit, listSelect);
-
-  //   chartInit.show(listSelect);
-  //   chartInit.hide(difference);
-  // });
 });
 
 function array_diff(array1, array2) {
@@ -49,25 +27,33 @@ function genChart() {
   var endDate = $('#end-date').val();
   var dates = getDates(new Date(startDate), new Date(endDate));
 
+  if(startDate == '' || endDate == '') return;
+
   var total = dates.length - 1;
-  var shopA = genDataShop('ShopA', total);
-  var shopB = genDataShop('ShopB', total);
-  var shopC = genDataShop('ShopC', total);
-  var shopD = genDataShop('ShopD', total);
-  var shopE = genDataShop('ShopE', total);
+  var shops = $('select').val();
+
+  if(shops.length == 0) return;
+
+  var kibo = ['希望販売価格'];
+  var kiboKakaku = 1800;
+
+  for (var i = 1; i <= total; i++) {
+    kibo.push(kiboKakaku);
+  }
+
+  var columns = [dates, kibo];
+  shops.forEach(function(shopName) {
+    columns[columns.length] = genDataShop(shopName, total);
+  });
 
   chartInit = c3.generate({
     data: {
       x: 'x',
       xFormat: '%Y/%m/%d',
-      columns: [
-        dates,
-        shopA,
-        shopB,
-        shopC,
-        shopD,
-        shopE
-      ]
+      columns: columns,
+      colors: {
+        '希望販売価格': '#777'
+      },
     },
     axis: {
       x: {
@@ -75,8 +61,11 @@ function genChart() {
         tick: {
           format: '%Y-%m-%d'
         },
-        extent: [13, 16]
+        label: '時間'
       },
+      y: {
+        label: '￥'
+      }
     },
     padding: {
       right: 25
@@ -86,6 +75,17 @@ function genChart() {
     },
     point: {
       show: false
+    },
+    tooltip: {
+      format: {
+        value: function (value, ratio, id, index) {
+          var format = d3.format(',');
+          var percent = (value - 1800)/value*100;
+          if(id === '希望販売価格') return '￥' + format(value);
+          else if(Math.abs(percent) < 10) return '￥'+format(value)+'('+ percent.toFixed(2) +'%)';
+          else return '<b style="color: red">￥'+format(value)+'('+ percent.toFixed(2) +'%)</b>';
+        }
+      }
     }
   });
 
@@ -122,5 +122,5 @@ var getDates = function (startDate, endDate) {
 };
 
 function genData() {
-  return Math.floor(Math.random() * 500) + 1000;
+  return Math.floor(Math.random() * 500) + 1500;
 }

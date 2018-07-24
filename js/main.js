@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $('#filter select').select2({
+  $('#detail-filter select').select2({
     theme: 'bootstrap',
     closeOnSelect: false
   });

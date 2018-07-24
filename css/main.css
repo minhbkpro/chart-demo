@@ -1,13 +1,54 @@
 html,
 body {
+  font-family: 'Helvetica Neue', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
+  font-size: 13px;
+  color: #111;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
   min-height: 100vh;
 }
 
-#filter select {
+#index-filter input {
+  width: 100px;
+}
+
+#table thead th {
+  vertical-align: middle;
+  text-align: center;
+  background-color: rgba(0, 0, 0, .09);
+  border-width: 1px !important;
+  border-color: #c9cdd0;
+}
+
+#table tbody td {
+  vertical-align: middle;
+  border-color: #c9cdd0;
+}
+
+#table .average {
+  background-color: #ffffcc;
+}
+
+#table .orange {
+  background-color: #FFAB40;
+}
+
+#table a {
+  text-decoration: underline;
+}
+
+#detail-filter select {
   width: 500px;
 }
 
 #chart {
   width: 100%;
-  height: 50vh;
+  height: 70vh;
+}
+
+.c3-target-希望販売価格 path {
+  stroke-width: 2px;
 }
