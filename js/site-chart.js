@@ -43,11 +43,7 @@ function genChart() {
   }
 
   var columns = [];
-
-  var x = ['x'];
-  shops.forEach(function(shopName) {
-    x.push(shopName);
-  });
+  var lines = [];
 
   products.forEach(function(productName, index) {
     var data = [productName];
@@ -55,15 +51,27 @@ function genChart() {
       data.push(Math.floor(Math.random() * 1000) + 1000 * (index + 1));
     }
     columns.push(data);
+
+    lines.push({value: 1000 * (index + 2), class: 'grid-line'});
   });
 
   columns.reverse();
+
+  var x = ['x'];
+  shops.forEach(function(shopName) {
+    x.push(shopName);
+  });
   columns.unshift(x);
 
   chartInit = c3.generate({
     data: {
       x: 'x',
       columns: columns,
+    },
+    grid: {
+      y: {
+        lines: lines
+      }
     },
     axis: {
       x: {
