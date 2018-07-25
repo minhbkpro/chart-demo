@@ -54,6 +54,7 @@ function genChart() {
       colors: {
         '希望販売価格': '#777'
       },
+      type: 'spline'
     },
     axis: {
       x: {

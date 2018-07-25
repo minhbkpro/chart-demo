@@ -27,33 +27,29 @@
         <li class="breadcrumb-item">
           <a href="index.html">ホーム</a>
         </li>
-        <li class="breadcrumb-item active" aria-current="page">そうだねフライパン</li>
+        <li class="breadcrumb-item active" aria-current="page">キッチン用品</li>
       </ol>
     </nav>
 
     <form id="detail-filter" class="form-inline justify-content-end">
-      <label>期間</label>
-      <input id="start-date" type="text" class="form-control form-control-sm ml-2 datepicker">
-      <span class="mx-2">~</span>
-      <input id="end-date" type="text" class="form-control form-control-sm datepicker">
       <label class="ml-4">販売サイト選択</label>
       <span class="ml-2"></span>
       <select class="form-control form-control-sm" multiple="multiple">
         <optgroup label="アマゾン">
           <option value="アマゾン/ShopA" selected>ShopA</option>
           <option value="アマゾン/ShopB" selected>ShopB</option>
-          <option value="アマゾン/ShopC">ShopC</option>
+          <option value="アマゾン/ShopC" selected>ShopC</option>
         </optgroup>
         <optgroup label="楽天">
           <option value="楽天/ShopX" selected>ShopX</option>
         </optgroup>
         <optgroup label="他の販売サイト">
-          <option value="他の販売サイト/ShopY">ShopY</option>
+          <option value="他の販売サイト/ShopY" selected>ShopY</option>
         </optgroup>
       </select>
     </form>
 
-    <div id="chart" class="detail-chart"></div>
+    <div id="chart" class="site-chart"></div>
   </div>
 
   <!-- Optional JavaScript -->
@@ -65,7 +61,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
   <script src="js/d3.js"></script>
   <script src="js/c3.min.js"></script>
-  <script src="js/detail-chart.js"></script>
+  <script src="js/site-chart.js"></script>
   <script src="js/main.js"></script>
 </body>
 
